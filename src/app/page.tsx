@@ -153,7 +153,7 @@ const Page = () => {
         <div className="w-full flex items-center justify-between text-white">
     <div>
             <h1 className="text-2xl font-semibold tracking-tight">wagmi</h1>
-            <p className="text-sm opacity-80">We're all gonna make it.</p>
+            <p className="text-sm opacity-80">We&apos;re all gonna make it.</p>
           </div>
         </div>
       </header>
@@ -237,7 +237,7 @@ const Page = () => {
               {(['All', ...STATUS_OPTIONS] as const).map((s) => (
                 <button
                   key={s}
-                  onClick={() => setFilterStatus(s as any)}
+                  onClick={() => setFilterStatus(s as 'All' | ApplicationStatus)}
                   className={`h-8 px-3 rounded-full text-xs border ${filterStatus === s ? 'bg-neutral-900 text-white border-neutral-900 dark:bg-neutral-200 dark:text-black dark:border-neutral-200' : 'border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-900/50'}`}
                 >
                   {s}
@@ -246,7 +246,7 @@ const Page = () => {
             </div>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => setSortBy(e.target.value as 'Newest' | 'Oldest' | 'Company' | 'Status' | 'Deadline')}
               className="h-10 rounded-md border border-neutral-200/40 dark:border-neutral-800/60 bg-white/70 dark:bg-neutral-900/60 px-3 text-sm outline-none focus:ring-2 ring-neutral-300 dark:ring-neutral-700"
             >
               <option>Newest</option>
