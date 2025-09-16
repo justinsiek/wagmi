@@ -13,6 +13,7 @@ type Application = {
 type ApplicationStatus =
   | 'Applied'
   | 'OA'
+  | 'OA Submitted'
   | 'Interviewing'
   | 'Offer'
   | 'Rejected'
@@ -21,6 +22,7 @@ type ApplicationStatus =
 const STATUS_OPTIONS: ApplicationStatus[] = [
   'Applied',
   'OA',
+  'OA Submitted',
   'Interviewing',
   'Offer',
   'Rejected',
@@ -88,8 +90,9 @@ const Page = () => {
         Ghosted: 1,
         Applied: 2,
         OA: 3,
-        Interviewing: 4,
-        Offer: 5,
+        'OA Submitted': 4,
+        Interviewing: 5,
+        Offer: 6,
       }
       sorted.sort((a, b) => (statusRank[b.status] - statusRank[a.status]))
     }
@@ -321,6 +324,7 @@ function StatusBadge({ status }: { status: ApplicationStatus }) {
   const color =
     status === 'Offer' ? 'bg-emerald-600/15 text-emerald-700 dark:text-emerald-400' :
     status === 'OA' ? 'bg-violet-600/15 text-violet-700 dark:text-violet-400' :
+    status === 'OA Submitted' ? 'bg-indigo-600/15 text-indigo-700 dark:text-indigo-400' :
     status === 'Interviewing' ? 'bg-blue-600/15 text-blue-700 dark:text-blue-400' :
     status === 'Rejected' ? 'bg-rose-600/15 text-rose-700 dark:text-rose-400' :
     status === 'Ghosted' ? 'bg-amber-600/15 text-amber-700 dark:text-amber-400' :
